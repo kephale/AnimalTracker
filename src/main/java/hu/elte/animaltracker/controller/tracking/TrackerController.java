@@ -712,4 +712,9 @@ public class TrackerController implements PlugIn, MouseListener, ImageListener,
 
 	}
 
+	public static void main(String[] args) {
+		TrackerController tc = new TrackerController();
+		tc.run(" ");
+	}
+
 }

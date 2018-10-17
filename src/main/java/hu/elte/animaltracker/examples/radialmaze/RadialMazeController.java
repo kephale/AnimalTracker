@@ -38,6 +38,8 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.imagej.ImageJ;
+
 public class RadialMazeController implements PlugIn {
 
 	protected ImagePlus imp;
@@ -342,6 +344,13 @@ public class RadialMazeController implements PlugIn {
 		RadialMazeView view = new RadialMazeView(this);
 		view.setVisible(true);
 
+	}
+
+	public static void main(String[] args) {
+		ImageJ ij = new ImageJ();
+
+		RadialMazeController rmc = new RadialMazeController();
+		rmc.run(" ");
 	}
 
 }

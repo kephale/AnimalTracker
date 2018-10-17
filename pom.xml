@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>imagej.fun</groupId>
+    <artifactId>AnimalTracker_</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.scijava</groupId>
+        <artifactId>pom-scijava</artifactId>
+        <version>23.1.1</version>
+        <relativePath />
+    </parent>
+
+    <name>AnimalTracker</name>
+    <description>Scenery-backed 3D visualization package for ImageJ.</description>
+    <url>https://animaltracker.elte.hu/main</url>
+    <inceptionYear>2016</inceptionYear>
+    <organization>
+        <name>scenery</name>
+        <url>http://scenery.graphics</url>
+    </organization>
+    <licenses>
+        <license>
+            <name>Simplified BSD License</name>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>kephale</id>
+            <name>Kyle Harrington</name>
+            <url>http://imagej.net/User:Kharrington</url>
+            <roles>
+                <role>developer</role>
+                <role>debugger</role>
+                <role>reviewer</role>
+                <role>support</role>
+                <role>maintainer</role>
+            </roles>
+        </developer>
+    </developers>
+    <contributors>
+        <contributor>
+            <name>Curtis Rueden</name>
+            <url>https://imagej.net/User:Rueden</url>
+            <properties><id>ctrueden</id></properties>
+        </contributor>
+    </contributors>
+
+    <mailingLists>
+        <mailingList>
+            <name>ImageJ Forum</name>
+            <archive>http://forum.imagej.net/</archive>
+        </mailingList>
+    </mailingLists>
+
+    <scm>
+        <connection>scm:git:git@github.com:kephale/AnimalTracker.git</connection>
+        <developerConnection>scm:git:git@github.com:kephale/AnimalTracker.git</developerConnection>
+        <tag>HEAD</tag>
+        <url>https://github.com/kephale/AnimalTracker</url>
+    </scm>
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/kephale/AnimalTracker/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>Travis CI</system>
+        <url>https://travis-ci.org/kephale/AnimalTracker</url>
+    </ciManagement>
+
+    <properties>
+        <main-class>hu.elte.animaltracker.examples.radialmaze.RadialMazeController</main-class>
+
+        <license.licenseName>bsd_2</license.licenseName>
+        <license.copyrightOwners>AnimalTracker developers.</license.copyrightOwners>
+
+        <!-- NB: Deploy releases to the ImageJ Maven repository. -->
+        <releaseProfiles>deploy-to-imagej</releaseProfiles>
+    </properties>
+
+    <repositories>
+        <!--
+        NB: The sonatype.public repository group, while proxied by imagej.public,
+        is here so that SNAPSHOT couplings to graphics.scenery:scenery can resolve
+        to the latest snapshot versions when -U is given. Otherwise, it seems the
+        imagej.public repository only pulls from upstream every so often, and can
+        thus fall out of date even when -U is given.
+        -->
+        <repository>
+            <id>sonatype.public</id>
+            <url>https://oss.sonatype.org/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>imagej.public</id>
+            <url>http://maven.imagej.net/content/groups/public</url>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- SciJava dependencies -->
+        <dependency>
+            <groupId>org.scijava</groupId>
+            <artifactId>scijava-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.scijava</groupId>
+            <artifactId>scijava-ui-swing</artifactId>
+        </dependency>
+
+        <!-- ImageJ dependencies -->
+        <dependency>
+            <groupId>net.imagej</groupId>
+            <artifactId>imagej-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.imagej</groupId>
+            <artifactId>imagej-ops</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.imagej</groupId>
+            <artifactId>imagej-legacy</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.imagej</groupId>
+            <artifactId>imagej</artifactId>
+        </dependency>
+
+        <!-- ImgLib2 dependencies -->
+        <dependency>
+            <groupId>net.imglib2</groupId>
+            <artifactId>imglib2-roi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.imglib2</groupId>
+            <artifactId>imglib2</artifactId>
+        </dependency>
+
+        <!-- Test scope -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
